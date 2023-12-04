@@ -12,8 +12,12 @@ class UsersController extends Controller
     }
 
     public function show(User $user){
-       // echo compact('user');
-        return view('users.show',compact('user'));
+        // echo "<pre>";
+        // var_dump(['user'=>$user]);
+        // return;
+       // return view('users.show',compact('user'));
+        return view('users.show',['user'=>$user]);
+       
     }
     public function store(Request $request){
         $this->validate($request,[
@@ -31,6 +35,6 @@ class UsersController extends Controller
 
         session()->flash('success','欢迎，您将在这里开启一段新的旅程~');
 
-        return redirect()->route('users.show',[$user]);
+        return redirect()->route('users.show',['user'=>$user]);
     }
 }
