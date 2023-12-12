@@ -14,7 +14,8 @@ class FollowersTableSeeder extends Seeder
     public function run()
     {
         $users=User::all();
-        $user=User::first();
+        //$user=User::first();
+        $user=$users->first();
 
         $followers=$users->slice(1);
         $follower_ids=$followers->pluck('id')->toArray();
