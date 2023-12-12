@@ -66,7 +66,7 @@ class User extends Authenticatable
     }
 
 
-    
+
     public function followers(){
         return $this->belongsToMany(User::class,'followers','user_id','follower_id');
     }
@@ -95,7 +95,7 @@ class User extends Authenticatable
 
     public function isFollowing($user_id){
        //$ids = $this->followings()->allRelatedIds()->toArray();
-       return $this->followings()->contains($user_id);
+       return $this->followings->contains($user_id);
 
     }
 
