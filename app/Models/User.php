@@ -65,6 +65,8 @@ class User extends Authenticatable
         return $this->statuses()->orderBy('created_at','desc');
     }
 
+
+    
     public function followers(){
         return $this->belongsToMany(User::class,'followers','user_id','follower_id');
     }
@@ -74,7 +76,7 @@ class User extends Authenticatable
     }
 
 
-    
+
 
     public function  follow($user_ids){
         if(!is_array($user_ids)){
